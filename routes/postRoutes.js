@@ -1,9 +1,9 @@
 import express from "express";  
-
-import {createPost} from "../controllers/postController.js";
+import authMiddleware from "../middlewares/authMiddleWare.js";
+import {createPost,getPosts} from "../controllers/postController.js";
 const router = express.Router();
-
-router.post("/create",createPost);
+router.get("/",getPosts);
+router.post("/",authMiddleware,createPost);
 
 
 

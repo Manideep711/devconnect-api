@@ -8,4 +8,9 @@ export function createPostService(title,content,userId){
     });
     return newPost.save();  
 }
+export function getAllPostsService(){
+   return Post.find().populate("user","name email").sort({createdAt:-1});
+
+} 
+
     
